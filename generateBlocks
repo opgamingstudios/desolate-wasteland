@@ -1,0 +1,35 @@
+ DesertBio
+ {
+ list<blocks> BlocksSpawnable;
+ 
+ BlocksSpawnable.add(DesertTile);
+ BlocksSpawnable.add(WaterTile); //small chance of an oasis
+ BlocksSpawnable[1].getComponent<BlockScript>().SpawnChance = 80;
+ BlocksSpawnable[0].getComponent<BlockScript>().SpawnChance = 20;
+ 
+ //create bio returns a 2 dimensional list of blocks to spawn
+ blocks[,] CreateBio(int Length, int Width)
+ {
+ blocks[,] BlocksToSpawn = new blocks[Length, Width];
+ 
+ // at this point you can start specializing
+ //for example if height is  != 0 (not at ground level) remove snowy ground cover blocks from 
+ //possible spawn list and redistribute there spawn chance.
+ 
+ //check all neighboring blocks and if a water block exists chance to spawn water goes to 75%
+ //so for example
+ 
+ for(int X = currentX - 1 ;X <= currentX + 1; X++
+ {
+ for (int Y = currentY - 1; X <= currentY + 1; Y++
+ {
+    if(Blocks[X,Y].tag == "water")
+       //Modify spawn chance
+ }
+ }
+ 
+ //now that you've done all the modifications you just generate a number and compare to figure out which block to spawn.
+ 
+ 
+ 
+ }
